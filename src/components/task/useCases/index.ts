@@ -1,5 +1,7 @@
-import { taskControllerCreate as taskCreate} from './taskCreateUseCase';
+import { taskControllerCreate as taskCreate} from './taskUseCaseCreate';
+import { taskControllerFindOne as taskFindOne } from './taskUseCaseFindOne';
 
 export const controllers = {
-  taskCreate
+  taskCreate,
+  taskFindOne
 };

@@ -4,10 +4,11 @@ export enum IPriority {
   alta = 'alta'
 }
 export interface ITaskDTO {
-  readonly id: string;
+  readonly id: string ;
   task: string;
   priority: IPriority;
   creationDate: string;
   idUser: string
 }
+
 
