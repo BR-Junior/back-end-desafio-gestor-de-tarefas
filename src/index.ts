@@ -4,7 +4,7 @@ import { typeORMConfig } from './typeORMConfig';
 
 
 const main = async () => {
-  typeORMConfig.initialize();
+  await typeORMConfig.initialize();
   console.log('Banco de dados rodando');
 
   server.listen(process.env.PORT || 3333);
