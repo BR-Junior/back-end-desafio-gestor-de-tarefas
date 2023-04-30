@@ -1,12 +1,12 @@
 export enum IPriority {
-  low = 'baixa',
-  normal = 'média',
-  high = 'alta'
+  low = 'low',
+  normal = 'normal',
+  high = 'high'
 }
 export enum IStatus {
-  open = 'aberto',
-  doing = 'fazendo',
-  finished = 'terminado'
+  open = 'open',
+  doing = 'doing',
+  finished = 'finished'
 }
 export interface ITaskDTO {
   readonly id: string ;

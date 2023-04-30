@@ -8,9 +8,9 @@ export class TaskControlleFindAll {
   async execute(data:string, res:Response) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const { idUser, priority, creationDate } = data;
+    const { idUser, priority, status, creationDate } = data;
     try {
-      const result = await this.repo.findAll(idUser, priority, creationDate);
+      const result = await this.repo.findAll(idUser, priority, status, creationDate);
       if (result instanceof Error) {
         return res.status(400).json(result.message);
       }

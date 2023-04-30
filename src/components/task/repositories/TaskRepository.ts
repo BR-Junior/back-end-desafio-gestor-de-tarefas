@@ -1,5 +1,5 @@
 import {ITaskRepository} from './ITaskRepository';
-import {IPriority, ITaskDTO} from '../DTO/ITaskDTO';
+import {IPriority, IStatus, ITaskDTO} from '../DTO/ITaskDTO';
 import { typeORMConfig } from '../../../typeORMConfig';
 import { Task } from '../../../database/Task';
 
@@ -25,11 +25,12 @@ export class TaskRepository implements ITaskRepository{
   async delete(id:string) {
     await this.repository.delete(id);
   }
-  async findAll(idUser:string, priority:IPriority, creationDate:string):Promise<ITaskDTO[] | Error> {
+  async findAll(idUser:string, priority:IPriority, status:IStatus, creationDate:string):Promise<ITaskDTO[] | Error> {
     const result = this.repository.find({
       where: {
         idUser:idUser,
         creationDate:creationDate,
+        status:status,
         priority: priority
       },
       order: {id: 'asc'},
