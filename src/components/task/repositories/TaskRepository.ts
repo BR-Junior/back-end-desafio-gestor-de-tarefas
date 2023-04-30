@@ -14,11 +14,16 @@ export class TaskRepository implements ITaskRepository{
   }
   async findOne(id:string):Promise<ITaskDTO | Error> {
     const result = await this.repository.findOneBy({id:id});
-    if (!result) return Error('id não encontrado');
+    if (!result) return Error('message: task não encontrado');
     return result as ITaskDTO;
   }
-  async update(id:string, task:Omit<ITaskDTO, 'id'>):Promise<void | Error> {
+  async update(id:string, task:Omit<ITaskDTO, 'id'>):Promise<ITaskDTO | Error> {
     await this.repository.update(id, task);
+    const find = await this.repository.findOneBy({id:id});
+    return find as ITaskDTO ;
+  }
+  async delete(id:string) {
+    await this.repository.delete(id);
   }
 }
 

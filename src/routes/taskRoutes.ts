@@ -8,5 +8,7 @@ taskRoutes.get('/task/:id', (req:Request, res:Response) =>
   controllers.taskFindOne.execute(req.params.id, res));
 taskRoutes.put('/task/:id', (req:Request, res: Response) =>
   controllers.taskUpdate.execute(req.params.id, req.body, res));
+taskRoutes.delete('/task/:id', (req:Request, res: Response) =>
+  controllers.taskDelete.execute(req.params.id, res));
 
 export { taskRoutes };
