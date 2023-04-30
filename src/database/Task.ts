@@ -1,5 +1,5 @@
 import {Column, Entity, Index, PrimaryColumn} from 'typeorm';
-import { ITaskDTO, IPriority } from '../components/task/DTO/ITaskDTO';
+import {ITaskDTO, IPriority, IStatus} from '../components/task/DTO/ITaskDTO';
 
 
 @Entity('tasks')
@@ -14,6 +14,11 @@ export  class Task implements ITaskDTO{
   enum: IPriority
 })
   priority: IPriority;
+@Column({
+  type: 'enum',
+  enum: IStatus
+})
+  status: IStatus;
 @Column()
   creationDate: string;
 @Column()

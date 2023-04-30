@@ -1,15 +1,16 @@
 import { Response } from 'express';
 import { TaskUseCaseFindAll } from './TaskUseCaseFindAll';
 
+
 export class TaskControlleFindAll {
   constructor(private repo: TaskUseCaseFindAll) {}
 
   async execute(data:string, res:Response) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const { id, priority, creationDate } = data;
+    const { idUser, priority, creationDate } = data;
     try {
-      const result = await this.repo.findAll(id, priority, creationDate);
+      const result = await this.repo.findAll(idUser, priority, creationDate);
       if (result instanceof Error) {
         return res.status(400).json(result.message);
       }

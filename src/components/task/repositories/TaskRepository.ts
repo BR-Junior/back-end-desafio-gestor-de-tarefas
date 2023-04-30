@@ -25,16 +25,16 @@ export class TaskRepository implements ITaskRepository{
   async delete(id:string) {
     await this.repository.delete(id);
   }
-  async findAll(id:string, priority:IPriority, creationDate:string):Promise<ITaskDTO[] | Error> {
+  async findAll(idUser:string, priority:IPriority, creationDate:string):Promise<ITaskDTO[] | Error> {
     const result = this.repository.find({
       where: {
-        idUser:id,
+        idUser:idUser,
         creationDate:creationDate,
         priority: priority
       },
       order: {id: 'asc'},
       skip: (Number('1') - 1) * 3,
-      take: 3
+      take: 10
     });
     return result;
   }

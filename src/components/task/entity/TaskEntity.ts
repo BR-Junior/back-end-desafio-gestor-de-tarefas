@@ -1,5 +1,5 @@
 import { v4 as uuid} from 'uuid';
-import { IPriority} from '../DTO/ITaskDTO';
+import {IPriority, IStatus} from '../DTO/ITaskDTO';
 
 function dateFormatted(){
   const data = new Date(),
@@ -14,6 +14,7 @@ export class TaskEntity {
   readonly id?: string |null;
   task: string;
   priority: IPriority;
+  status: IStatus;
   idUser:string;
   readonly creationDate?: string | null;
 
