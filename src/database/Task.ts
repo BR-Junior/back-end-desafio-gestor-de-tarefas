@@ -1,5 +1,7 @@
-import {Column, Entity, Index, PrimaryColumn} from 'typeorm';
+import {Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn} from 'typeorm';
 import {ITaskDTO, IPriority, IStatus} from '../components/task/DTO/ITaskDTO';
+import { User } from './User';
+import { IUserDTO } from '../components/user/DTO/IUserDTO';
 
 
 @Entity('tasks')
@@ -21,6 +23,7 @@ export  class Task implements ITaskDTO{
   status: IStatus;
 @Column()
   creationDate: string;
-@Column()
-  idUser: string;
+@ManyToOne(() => User, user => user.id)
+@JoinColumn({name: 'id_user'})
+  idUser: IUserDTO[];
 }

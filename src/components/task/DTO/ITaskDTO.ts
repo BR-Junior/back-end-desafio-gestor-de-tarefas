@@ -1,3 +1,5 @@
+import {IUserDTO} from '../../user/DTO/IUserDTO';
+
 export enum IPriority {
   low = 'low',
   normal = 'normal',
@@ -14,7 +16,7 @@ export interface ITaskDTO {
   priority: IPriority;
   status: IStatus,
   creationDate: string;
-  idUser: string
+  idUser: IUserDTO[]
 }
 
 
