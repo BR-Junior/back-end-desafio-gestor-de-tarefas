@@ -18,16 +18,6 @@ export interface ITaskDTO {
   status: IStatus,
   creationDate: string;
   idUser: DeepPartial<User[]> ;
-
-
-}
-export interface ITaskModelDTO {
-  readonly id: string ;
-  task: string;
-  priority: IPriority;
-  status: IStatus,
-  creationDate: string;
-  idUser: User[]
 }
 
 

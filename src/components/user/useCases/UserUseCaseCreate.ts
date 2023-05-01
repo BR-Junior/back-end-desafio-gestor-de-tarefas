@@ -5,8 +5,13 @@ import {UserEntity} from '../entity/UserEntity';
 export class UserUseCaseCreate {
   constructor(private repo: IUserRepository) {}
   async create(data:IUserDTO): Promise<IUserDTO | Error> {
+    const {name,email,password} = data;
     try {
-      const result = new UserEntity(data);
+      const result = new UserEntity({
+        name,
+        email,
+        password
+      });
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       await this.repo.create(result);

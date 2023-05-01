@@ -13,7 +13,13 @@ export class TaskRepository implements ITaskRepository{
     return result;
   }
   async findOne(id:string):Promise<ITaskDTO | Error> {
-    const result = await this.repository.findOneBy({id:id});
+    // const result = await this.repository.findOneBy({id:id});
+    const result = await this.repository.findOne({
+      relations: {idUser:true},
+      where: {
+        id:id
+      }
+    });
     if (!result) return Error('message: task não encontrado');
     return result as ITaskDTO;
   }
