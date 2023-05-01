@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IUserDTO } from '../DTO/IUserDTO';
+import { IUserDTO } from '../../DTO/IUserDTO';
 import { UserUseCaseCreate } from './UserUseCaseCreate';
 
 export class UserControlleCreater {

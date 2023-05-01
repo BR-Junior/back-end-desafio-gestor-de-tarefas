@@ -1,12 +1,12 @@
 import {Router, Request, Response } from 'express';
 import { controllers } from '../components/task/useCases';
-import { controllerUser } from  '../components/user';
+import { isAuthenticated } from '../shared';
 
 
 const taskRoutes = Router();
-taskRoutes.post('/task',
-  controllers.taskValidationCreate,
+taskRoutes.post('/task', controllers.taskValidationCreate,
   (req:Request, res: Response) => controllers.taskCreate.execute(req, res));
+
 taskRoutes.get('/task/:id',controllers.taskValidationFindOne,
   (req:Request, res:Response) =>
     controllers.taskFindOne.execute(req.params.id, res));
@@ -20,6 +20,4 @@ taskRoutes.delete('/task/:id', controllers.taskValidationDelete,
   (req:Request, res: Response) =>
     controllers.taskDelete.execute(req.params.id, res));
 
-taskRoutes.post('/user',(req:Request, res: Response) =>
-  controllerUser.UserCreate.execute(req, res));
 export { taskRoutes };

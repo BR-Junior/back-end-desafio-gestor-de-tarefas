@@ -13,6 +13,22 @@ export class UserRepository implements IUserRepository{
     await this.repository.save(result);
     return result;
   }
+  async findOneEmail(email:string): Promise<IUserDTO | Error> {
+    try {
+      const result = await this.repository.findOne({
+        where: {
+          email:email
+        }
+      });
+      if (result) return  result;
+
+      return new Error('Registro não encontrado');
+
+    }catch (err) {
+      console.log(err);
+      return new Error('Erro ao consultar o registro');
+    }
+  }
 }
 
 

@@ -1,16 +1,18 @@
-import { IUserRepository } from '../repositories/IUserRepository';
-import { IUserDTO } from '../DTO/IUserDTO';
-import {UserEntity} from '../entity/UserEntity';
+import { IUserRepository } from '../../repositories/IUserRepository';
+import { IUserDTO } from '../../DTO/IUserDTO';
+import { UserEntity } from '../../entity/UserEntity';
+import { passwordCrypto } from '../../../../shared/services/passwordCrypto';
 
 export class UserUseCaseCreate {
   constructor(private repo: IUserRepository) {}
   async create(data:IUserDTO): Promise<IUserDTO | Error> {
-    const {name,email,password} = data;
+    const { name, email, password} = data;
     try {
+      const hashedPassword = await passwordCrypto.hashPassword(password);
       const result = new UserEntity({
         name,
         email,
-        password
+        password: hashedPassword
       });
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore

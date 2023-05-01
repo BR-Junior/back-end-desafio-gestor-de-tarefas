@@ -1,4 +1,4 @@
-import { validation } from '../../../../shared/validation';
+import { validation } from '../../../../shared/services/validation';
 import * as yup from 'yup';
 
 export const taskValidationUpdate = validation({
