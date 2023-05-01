@@ -1,11 +1,10 @@
 import {Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn} from 'typeorm';
-import {ITaskDTO, IPriority, IStatus} from '../components/task/DTO/ITaskDTO';
+import {ITaskModelDTO, IPriority, IStatus} from '../components/task/DTO/ITaskDTO';
 import { User } from './User';
-import { IUserDTO } from '../components/user/DTO/IUserDTO';
 
 
 @Entity('tasks')
-export  class Task implements ITaskDTO{
+export  class Task implements ITaskModelDTO{
 @PrimaryColumn()
 @Index()
   id: string;
@@ -25,5 +24,6 @@ export  class Task implements ITaskDTO{
   creationDate: string;
 @ManyToOne(() => User, user => user.id)
 @JoinColumn({name: 'id_user'})
-  idUser: IUserDTO[];
+  idUser: User[];
+  // DeepPartial<User[]>
 }

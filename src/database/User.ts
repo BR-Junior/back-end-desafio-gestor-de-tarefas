@@ -1,11 +1,10 @@
 import {Column, Entity, Index,  OneToOne, PrimaryColumn} from 'typeorm';
-import { IUserDTO } from '../components/user/DTO/IUserDTO';
-import { ITaskDTO } from '../components/task/DTO/ITaskDTO';
+import { IUserModelDTO} from '../components/user/DTO/IUserDTO';
 import { Task } from './Task';
 
 
 @Entity('users')
-export class User implements IUserDTO{
+export class User implements IUserModelDTO{
   @PrimaryColumn()
   @Index()
     id: string;
@@ -16,5 +15,5 @@ export class User implements IUserDTO{
   @Column()
     password: string;
   @OneToOne(() => Task, task => task.idUser)
-    tasks: ITaskDTO;
+    tasks: Task;
 }

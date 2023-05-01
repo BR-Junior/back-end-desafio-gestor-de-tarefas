@@ -1,5 +1,6 @@
 import {Router, Request, Response } from 'express';
 import { controllers } from '../components/task/useCases';
+import { controllerUser } from  '../components/user';
 
 
 const taskRoutes = Router();
@@ -19,4 +20,6 @@ taskRoutes.delete('/task/:id', controllers.taskValidationDelete,
   (req:Request, res: Response) =>
     controllers.taskDelete.execute(req.params.id, res));
 
+taskRoutes.post('/user',(req:Request, res: Response) =>
+  controllerUser.UserCreate.execute(req, res));
 export { taskRoutes };

@@ -1,5 +1,7 @@
 import { v4 as uuid} from 'uuid';
 import {IPriority, IStatus} from '../DTO/ITaskDTO';
+import {DeepPartial} from 'typeorm';
+import {User} from '../../../database/User';
 
 function dateFormatted(){
   const data = new Date(),
@@ -15,7 +17,7 @@ export class TaskEntity {
   task: string;
   priority: IPriority;
   status: IStatus;
-  idUser:string;
+  idUser: DeepPartial<User[]>;
   readonly creationDate?: string | null;
 
   constructor(props: Omit<TaskEntity, 'id' | 'creationDate'>, id?:string, creationDate?:string) {

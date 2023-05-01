@@ -26,9 +26,13 @@ export class TaskRepository implements ITaskRepository{
     await this.repository.delete(id);
   }
   async findAll(idUser:string, priority:IPriority, status:IStatus, creationDate:string):Promise<ITaskDTO[] | Error> {
-    const result = this.repository.find({
+
+    const result = await this.repository.find({
+      relations: { idUser:true },
       where: {
-        idUser:idUser,
+        idUser: {
+          id:idUser
+        },
         creationDate:creationDate,
         status:status,
         priority: priority

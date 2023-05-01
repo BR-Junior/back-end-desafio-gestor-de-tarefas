@@ -1,18 +1,17 @@
-import { v4 as uuid} from 'uuid';
-import { IUserDTO } from '../DTO/IUserDTO';
+import { v4} from 'uuid';
 import {ITaskDTO} from '../../task/DTO/ITaskDTO';
 
-export class UserEntity implements IUserDTO{
+export class UserEntity {
   readonly id?: string |null;
   name: string;
   email: string;
   password: string;
-  tasks: ITaskDTO[];
+  tasks?: ITaskDTO[];
 
   constructor(props: Omit<UserEntity, 'id'>, id?:string) {
     Object.assign(this, props);
     if (!id) {
-      this.id = uuid();
+      this.id = v4();
     }
   }
 }

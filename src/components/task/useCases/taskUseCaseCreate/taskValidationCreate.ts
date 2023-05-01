@@ -8,7 +8,8 @@ export const taskValidationCreate= validation({
       .oneOf(['low', 'normal', 'high'], 'prioridade deve ser low, normal ou high'),
     status: yup.string().required('status é obrigatori')
       .oneOf(['open', 'doing', 'finished'], 'status deve ser open, doing ou finished'),
-    idUser: yup.string().required('id de usuario é obrigatorio'),
+    idUser: yup.string()
+    // .required('id de usuario é obrigatorio'),
   }),
 });
 

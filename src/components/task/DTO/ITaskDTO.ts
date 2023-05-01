@@ -1,4 +1,5 @@
-import {IUserDTO} from '../../user/DTO/IUserDTO';
+import { User } from '../../../database/User';
+import {DeepPartial} from 'typeorm';
 
 export enum IPriority {
   low = 'low',
@@ -16,7 +17,17 @@ export interface ITaskDTO {
   priority: IPriority;
   status: IStatus,
   creationDate: string;
-  idUser: IUserDTO[]
+  idUser: DeepPartial<User[]> ;
+
+
+}
+export interface ITaskModelDTO {
+  readonly id: string ;
+  task: string;
+  priority: IPriority;
+  status: IStatus,
+  creationDate: string;
+  idUser: User[]
 }
 
 
