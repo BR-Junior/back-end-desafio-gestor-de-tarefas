@@ -29,3 +29,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3
   "priority": "normal",
   "status": "open"
 }
+####
+
+GET http://localhost:3333/task
+Content-Type: application/json
