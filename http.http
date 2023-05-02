@@ -12,9 +12,20 @@ Content-Type: application/json
 ###
 POST http://localhost:3333/entrar
 Content-Type: application/json
-Authorization: Bearer teste.teste.teste
 
 {
   "email": "email@email.com",
   "password": "123456"
+}
+
+#####
+
+POST http://localhost:3333/task
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODI5ODUwNzEsImV4cCI6MTY4MzA3MTQ3MX0.0U0yNNBx2OORMIGTJ_B9-N6k5GrUyLXy4sBp6sy0RqE
+
+{
+  "task": "task é obrigatoria",
+  "priority": "normal",
+  "status": "open"
 }

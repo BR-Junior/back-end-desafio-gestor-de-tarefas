@@ -4,7 +4,8 @@ import { isAuthenticated } from '../shared';
 
 
 const taskRoutes = Router();
-taskRoutes.post('/task', controllers.taskValidationCreate,
+taskRoutes.post('/task', isAuthenticated,
+  controllers.taskValidationCreate,
   (req:Request, res: Response) => controllers.taskCreate.execute(req, res));
 
 taskRoutes.get('/task/:id',controllers.taskValidationFindOne,
