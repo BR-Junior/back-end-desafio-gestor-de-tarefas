@@ -5,7 +5,7 @@ import { TaskUseCaseFindAll } from './TaskUseCaseFindAll';
 export class TaskControlleFindAll {
   constructor(private repo: TaskUseCaseFindAll) {}
 
-  async execute(data:string, res:Response) {
+  async execute(data:Record<string, any>, res:Response) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const { idUser, priority, status, creationDate } = data;
