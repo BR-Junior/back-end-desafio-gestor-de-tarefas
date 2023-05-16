@@ -9,8 +9,5 @@ export const findEmail = async (params: IUserUseCaseFindEmail.Params) => {
 
   const response = await userUseCaseFindEmail.findEmail(params);
 
-
-  console.log(response);
-
   return response;
 };
