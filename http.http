@@ -38,3 +38,22 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3
 {
   "task": "teste"
 }
+
+#### POST create user teste new router
+POST http://localhost:3333/user
+Content-Type: application/json
+
+{
+  "name": "pipoca",
+  "email": "email@email.com",
+  "password": "123456"
+}
+
+### POST enter user teste new router
+POST http://localhost:3333/user-tra
+Content-Type: application/json
+
+{
+  "email": "email@email.com",
+  "password": "123456"
+}
