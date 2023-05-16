@@ -27,7 +27,7 @@ export class UserRepository implements
         where: {email: params.email}
       });
       if (result) return result;
-      return new Error('register not found');
+      return new Error('Invalid email or password');
 
     }catch (e) {
       return new Error('Error querying the registry');
