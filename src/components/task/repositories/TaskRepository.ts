@@ -1,5 +1,5 @@
 import {ITaskRepository} from './ITaskRepository';
-import {IPriority, IStatus, ITaskDTO} from '../DTO/ITaskDTO';
+import {IPriority, IStatus, ITaskBucaDTO, ITaskDTO} from '../DTO/ITaskDTO';
 import { typeORMConfig } from '../../../typeORMConfig';
 import { Task } from '../../../database/Task';
 import {FindOptionsOrder} from 'typeorm';
@@ -53,9 +53,23 @@ export class TaskRepository implements ITaskRepository{
     });
     return result;
   }
-  async teste()  {
-    this.repository.createQueryBuilder('task').having('task.task = :task', { task: 'Timber' });
+
+  async search(task:string) {
+    console.log(task);
+    task = 'teste';
+    const reposnse = await this.repository.createQueryBuilder('task')
+      .where('task.task LIKE :task', { task: `%${task.valueOf()}%` }).getMany();
+
+
+
+    console.log('repository');
+    console.log(reposnse);
+
+    return reposnse;
   }
+  // async teste()  {
+  //   this.repository.createQueryBuilder('task').having('task.task = :task', { task: 'Timber' });
+  // }
 }
 
 

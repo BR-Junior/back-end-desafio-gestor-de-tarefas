@@ -22,14 +22,19 @@ Content-Type: application/json
 
 POST http://localhost:3333/task
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODI5ODUwNzEsImV4cCI6MTY4MzA3MTQ3MX0.0U0yNNBx2OORMIGTJ_B9-N6k5GrUyLXy4sBp6sy0RqE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQyNDc5MTcsImV4cCI6MTY4NDMzNDMxN30.q50fwtmJiUAQxHK3vN-qX5cTi05gOWVrwJy6Na36_1c
 
 {
   "task": "task é obrigatoria",
   "priority": "normal",
   "status": "open"
 }
-####
 
-GET http://localhost:3333/task
+#### GET task-search
+GET http://localhost:3333/task-search
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQyNDc5MTcsImV4cCI6MTY4NDMzNDMxN30.q50fwtmJiUAQxHK3vN-qX5cTi05gOWVrwJy6Na36_1c
+
+{
+  "task": "teste"
+}

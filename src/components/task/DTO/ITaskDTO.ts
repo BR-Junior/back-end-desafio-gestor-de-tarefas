@@ -20,4 +20,8 @@ export interface ITaskDTO {
   idUser: DeepPartial<User[]> ;
 }
 
+export interface ITaskBucaDTO {
+  task: string;
+}
+
 

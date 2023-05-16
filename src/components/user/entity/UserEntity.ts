@@ -6,7 +6,7 @@ export class UserEntity {
   name: string;
   email: string;
   password: string;
-  tasks?: ITaskDTO[];
+  // tasks?: ITaskDTO[];
 
   constructor(props: Omit<UserEntity, 'id'>, id?:string) {
     Object.assign(this, props);

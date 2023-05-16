@@ -1,6 +1,4 @@
-import { ITaskDTO } from '../DTO/ITaskDTO';
-import { FindOptionsOrder} from 'typeorm';
-import {Task} from '../../../database/Task';
+import {ITaskBucaDTO, ITaskDTO} from '../DTO/ITaskDTO';
 
 
 
@@ -10,4 +8,5 @@ export interface ITaskRepository {
   findAll?(idUser:string, task:string, status:string, priority:string, creationDate:string, sort: any):Promise<ITaskDTO[] | Error>
   update?(id:string, task:Omit<ITaskDTO, 'id'>):Promise<ITaskDTO | Error>
   delete?(id:string):Promise<void>
+  search?(task:string):Promise<ITaskDTO[] | Error>
 }

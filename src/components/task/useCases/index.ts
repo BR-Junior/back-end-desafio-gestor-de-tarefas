@@ -7,6 +7,7 @@ import { taskValidationCreate } from './taskUseCaseCreate/taskValidationCreate';
 import { taskValidationDelete } from './taskUseCaseDelete/taskValidationDelete';
 import { taskValidationFindOne } from './taskUseCaseFindOne/taskValidationFindOne';
 import { taskValidationUpdate } from './taskUseCaseUpdate/taskValidationUpdate';
+import { taskControllerSearch as taskSearch }  from './taskUseCaseSearch';
 
 export const controllers = {
   taskValidationCreate,
@@ -17,5 +18,6 @@ export const controllers = {
   taskUpdate,
   taskValidationDelete,
   taskDelete,
-  taskFindAll
+  taskFindAll,
+  taskSearch
 };

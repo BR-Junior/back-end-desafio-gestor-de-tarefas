@@ -5,7 +5,7 @@ import { passwordCrypto } from '../../../../shared/services/passwordCrypto';
 
 export class UserUseCaseCreate {
   constructor(private repo: IUserRepository) {}
-  async create(data:IUserDTO): Promise<IUserDTO | Error> {
+  async create(data: { password: string; name: string; email: string }): Promise<IUserDTO | Error> {
     const { name, email, password} = data;
     try {
       const hashedPassword = await passwordCrypto.hashPassword(password);

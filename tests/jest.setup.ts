@@ -3,6 +3,7 @@
 import supertest from 'supertest';
 import { server } from '../src/server';
 import { typeORMConfig } from '../src/typeORMConfig';
+import 'reflect-metadata';
 
 beforeAll(async () => {
   await typeORMConfig.initialize();

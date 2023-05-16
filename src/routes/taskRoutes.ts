@@ -1,6 +1,7 @@
 import {Router, Request, Response } from 'express';
 import { controllers } from '../components/task/useCases';
 import { isAuthenticated } from '../shared';
+import {ITaskBucaDTO, ITaskDTO} from '../components/task/DTO/ITaskDTO';
 
 
 const taskRoutes = Router();
@@ -23,5 +24,8 @@ taskRoutes.delete('/task/:id',isAuthenticated,
   controllers.taskValidationDelete,
   (req:Request, res: Response) =>
     controllers.taskDelete.execute(req.params.id, res));
+
+taskRoutes.get('/task-search',
+  (req:Request, res:Response) => controllers.taskSearch.excute(req.body, res));
 
 export { taskRoutes };
