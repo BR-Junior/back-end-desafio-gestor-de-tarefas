@@ -63,7 +63,7 @@ POST http://localhost:3333/task-new
 Content-Type: application/json
 
 {
-  "task": "ju 123",
+  "task": "Felicia",
   "priority": "low",
   "status": "doing",
   "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
@@ -72,28 +72,29 @@ Content-Type: application/json
 ### GET all
 GET http://localhost:3333/task-new-get-all?idUser=e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQyNDc5MTcsImV4cCI6MTY4NDMzNDMxN30.q50fwtmJiUAQxHK3vN-qX5cTi05gOWVrwJy6Na36_1c
 
 ### GET one
-GET http://localhost:3333/task-new-get/7a3b3bb1-6ffa-4b0b-93ce-f7d94c1d70c7
+GET http://localhost:3333/task-new-get/b358a597-e3f8-44da-96bb-7e4b57125a11
 Content-Type: application/json
 
 
 ### Delete
-DELETE http://localhost:3333/task-new-delete/f623fc63-d129-4f79-9f31-f1994f3a18d9
+DELETE http://localhost:3333/task-new-delete/b528b938-9a99-4482-bcf5-039496cbd859
 Content-Type: application/json
 
 ### PUT update
-PUT http://localhost:3333/task-new-update/7a3b3bb1-6ffa-4b0b-93ce-f7d94c1d70c7
+PUT http://localhost:3333/task-new-update/a8b576b4-f657-4928-b8f6-448a557b0589
 Content-Type: application/json
 
 {
-  "id": "7a3b3bb1-6ffa-4b0b-93ce-f7d94c1d70c7",
-  "task": "task atualizada",
+  "id": "a8b576b4-f657-4928-b8f6-448a557b0589",
+  "task": "Felicia auau",
   "priority": "low",
   "status": "doing",
   "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
 }
 
 ### GET search
-GET http://localhost:3333/task-new-search?task=ju
+GET http://localhost:3333/task-new-search?task=Felicia
 Content-Type: application/json

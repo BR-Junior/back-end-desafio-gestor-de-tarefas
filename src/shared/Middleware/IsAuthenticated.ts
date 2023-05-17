@@ -14,11 +14,11 @@ export const isAuthenticated:RequestHandler = async (req, res, next) => {
   }
   const jwtData = JWTService.verify(authorization);
   if (jwtData === 'JWT_SECRET_NOT_FOUNF') {
-    res.status(400).json({
+    return res.status(400).json({
       errors: { message: 'Erro ao verificar o token' }
     });
   } else if (jwtData === 'INVALID_TOKEN') {
-    res.status(400).json({
+    return res.status(400).json({
       errors: { message: 'Não autenticado' }
     });
   }
