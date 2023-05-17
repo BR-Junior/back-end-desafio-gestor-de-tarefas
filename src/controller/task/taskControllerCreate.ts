@@ -11,6 +11,6 @@ export const taskControllerCreate =  async (req:Request, res: Response) => {
   if (isValid.errors) return res.status(400).json(isValid);
 
   const result = await create(params);
-  if (result instanceof Error) return result.message;
+  if (result instanceof Error) return res.status(400).json(result.message);
   return res.status(200).json(result);
 };

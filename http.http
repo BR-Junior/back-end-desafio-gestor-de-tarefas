@@ -64,7 +64,14 @@ Content-Type: application/json
 
 {
   "task": "task é obrigatório",
-  "priority": "normal",
-  "status": "open",
+  "priority": "low",
+  "status": "doing",
   "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
 }
+
+### GET all
+GET http://localhost:3333/task-new-get-all?idUser=e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c
+Content-Type: application/json
+
+
+
