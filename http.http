@@ -63,7 +63,7 @@ POST http://localhost:3333/task-new
 Content-Type: application/json
 
 {
-  "task": "task é obrigatório",
+  "task": "ju 123",
   "priority": "low",
   "status": "doing",
   "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
@@ -93,3 +93,7 @@ Content-Type: application/json
   "status": "doing",
   "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
 }
+
+### GET search
+GET http://localhost:3333/task-new-search?task=ju
+Content-Type: application/json

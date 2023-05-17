@@ -6,6 +6,7 @@ import {ITaskUseCaseDelete} from '../useCases/taskUseCaseDelete/ITaskUseCaseDele
 import {ITaskUseCaseFindOne} from '../useCases/taskUseCaseFindOne/ITaskUseCaseFindOne';
 import {ITaskUseCaseUpdate} from '../useCases/taskUseCaseUpdate/ITaskUseCaseUpdate';
 import {TaskEntity} from '../entity/TaskEntity';
+import {ITaskUseCaseSearch} from '../useCases/taskUseCaseSearch/ITaskUseCaseSearch';
 
 
 export class TaskRepository implements
@@ -13,7 +14,8 @@ export class TaskRepository implements
   ITaskUseCaseFindAll,
   ITaskUseCaseFindOne,
   ITaskUseCaseUpdate,
-  ITaskUseCaseDelete{
+  ITaskUseCaseDelete,
+  ITaskUseCaseSearch{
   private repoDb = typeORMConfig.getRepository(Task);
 
   async create(params: ITaskUseCaseCreate.Params): Promise<ITaskUseCaseCreate.Result | Error> {
@@ -75,6 +77,16 @@ export class TaskRepository implements
   async delete(params: ITaskUseCaseDelete.Params): Promise<void | Error> {
     try {
       await this.repoDb.delete(params);
+
+    }catch (e) {
+      return new Error('Error querying the registry');
+    }
+  }
+
+  async search(params: ITaskUseCaseSearch.Params): Promise<TaskEntity | TaskEntity[] | Error> {
+    try {
+      return  await this.repoDb.createQueryBuilder('task')
+        .where('task.task LIKE :task', { task: `%${params.task}%` }).getMany();
 
     }catch (e) {
       return new Error('Error querying the registry');
