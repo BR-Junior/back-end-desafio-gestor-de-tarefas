@@ -71,7 +71,11 @@ Content-Type: application/json
 
 ### GET all
 GET http://localhost:3333/task-new-get-all?idUser=e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c
-Content-Type: application/json /task-new-delete/:id
+Content-Type: application/json
+
+### GET one
+GET http://localhost:3333/task-new-get/7a3b3bb1-6ffa-4b0b-93ce-f7d94c1d70c7
+Content-Type: application/json
 
 
 ### Delete

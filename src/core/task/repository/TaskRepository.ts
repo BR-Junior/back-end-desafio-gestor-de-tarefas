@@ -3,11 +3,13 @@ import {Task} from '../../../database/Task';
 import {ITaskUseCaseCreate} from '../useCases/taskUseCaseCreate/ITaskUseCaseCreate';
 import {ITaskUseCaseFindAll} from '../useCases/taskUseCaseFindAll/ITaskUseCaseFindAll';
 import {ITaskUseCaseDelete} from '../useCases/taskUseCaseDelete/ITaskUseCaseDelete';
+import {ITaskUseCaseFindOne} from '../useCases/taskUseCaseFindOne/ITaskUseCaseFindOne';
 
 
 export class TaskRepository implements
   ITaskUseCaseCreate,
   ITaskUseCaseFindAll,
+  ITaskUseCaseFindOne,
   ITaskUseCaseDelete{
   private repoDb = typeORMConfig.getRepository(Task);
 
@@ -34,6 +36,19 @@ export class TaskRepository implements
         // skip: (Number('1') - 1) * 3,
         // take: 10
       });
+
+    }catch (e) {
+      return new Error('Error querying the registry');
+    }
+  }
+
+  async findOne(params: ITaskUseCaseFindOne.Params): Promise<ITaskUseCaseFindOne.Result | Error> {
+    try {
+      const result = await this.repoDb.findOne({
+        where: {id: params.id}
+      });
+      if (!result) return new Error('task not found');
+      return result;
 
     }catch (e) {
       return new Error('Error querying the registry');
