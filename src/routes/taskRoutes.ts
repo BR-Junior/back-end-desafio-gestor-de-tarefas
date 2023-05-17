@@ -1,7 +1,7 @@
 import {Router, Request, Response } from 'express';
 import { controllers } from '../components/task/useCases';
 import { isAuthenticated } from '../shared';
-import {ITaskBucaDTO, ITaskDTO} from '../components/task/DTO/ITaskDTO';
+import {taskControllerCreate} from '../controller/task/taskControllerCreate';
 
 
 const taskRoutes = Router();
@@ -27,5 +27,8 @@ taskRoutes.delete('/task/:id',isAuthenticated,
 
 taskRoutes.get('/task-search',
   (req:Request, res:Response) => controllers.taskSearch.excute(req.body, res));
+
+
+taskRoutes.post('/task-new',(req:Request, res: Response) => taskControllerCreate(req, res));
 
 export { taskRoutes };

@@ -57,3 +57,14 @@ Content-Type: application/json
   "email": "email@email.com",
   "password": "123456"
 }
+
+### POST create task new routes
+POST http://localhost:3333/task-new
+Content-Type: application/json
+
+{
+  "task": "task é obrigatório",
+  "priority": "normal",
+  "status": "open",
+  "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
+}

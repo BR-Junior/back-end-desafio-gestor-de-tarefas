@@ -11,5 +11,4 @@ export const userControllerCreate = async (req:Request, res: Response) => {
   const result = await create(params);
   if (result instanceof Error) return result.message;
   return res.status(200).json(result);
-
 };

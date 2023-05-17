@@ -14,5 +14,6 @@ export const typeORMConfig = new DataSource({
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   entities: [`${__dirname}/**/database/*.{ts,js}`],
+  // entities: [`${__dirname}/**/core/**/db/*.{ts,js}`],
   migrations: [`${__dirname}/**/database/migrations/*.{ts,js}`]
 });
