@@ -1,6 +1,5 @@
 import {Router, Request, Response } from 'express';
 import { controllerUser } from  '../components/user';
-import {create} from '../core/user/useCases/userUseCaseCreate';
 import {userControllerCreate} from '../controller/user/userControllerCreate';
 import {userControllerFindEmail} from '../controller/user/userControllerFindEmail';
 

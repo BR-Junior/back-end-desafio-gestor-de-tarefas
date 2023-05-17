@@ -1,4 +1,4 @@
-import {Request, Response} from 'express';
+import {Response} from 'express';
 import {providerFindAll} from '../../core/task/useCases/taskUseCaseFindAll';
 
 

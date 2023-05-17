@@ -3,6 +3,7 @@ import { controllers } from '../components/task/useCases';
 import { isAuthenticated } from '../shared';
 import {taskControllerCreate} from '../controller/task/taskControllerCreate';
 import {taskControllerFindAll} from '../controller/task/taskControllerFindAll';
+import {taskControllerDelete} from '../controller/task/taskControllerDelete';
 
 
 const taskRoutes = Router();
@@ -26,11 +27,13 @@ taskRoutes.delete('/task/:id',isAuthenticated,
   (req:Request, res: Response) =>
     controllers.taskDelete.execute(req.params.id, res));
 
-// taskRoutes.get('/task-search',
+// taskRoutes.get('/task-search',taskControllerDelete
 //   (req:Request, res:Response) => controllers.taskSearch.excute(req, res));
 
 
 taskRoutes.post('/task-new',(req:Request, res: Response) => taskControllerCreate(req, res));
 taskRoutes.get('/task-new-get-all',(req:Request, res: Response) => taskControllerFindAll(req, res));
+
+taskRoutes.delete('/task-new-delete/:id',(req:Request, res: Response) => taskControllerDelete(req, res));
 
 export { taskRoutes };

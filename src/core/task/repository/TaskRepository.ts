@@ -2,11 +2,13 @@ import {typeORMConfig} from '../../../typeORMConfig';
 import {Task} from '../../../database/Task';
 import {ITaskUseCaseCreate} from '../useCases/taskUseCaseCreate/ITaskUseCaseCreate';
 import {ITaskUseCaseFindAll} from '../useCases/taskUseCaseFindAll/ITaskUseCaseFindAll';
+import {ITaskUseCaseDelete} from '../useCases/taskUseCaseDelete/ITaskUseCaseDelete';
 
 
 export class TaskRepository implements
   ITaskUseCaseCreate,
-ITaskUseCaseFindAll{
+  ITaskUseCaseFindAll,
+  ITaskUseCaseDelete{
   private repoDb = typeORMConfig.getRepository(Task);
 
   async create(params: ITaskUseCaseCreate.Params): Promise<ITaskUseCaseCreate.Result | Error> {
@@ -32,6 +34,15 @@ ITaskUseCaseFindAll{
         // skip: (Number('1') - 1) * 3,
         // take: 10
       });
+
+    }catch (e) {
+      return new Error('Error querying the registry');
+    }
+  }
+
+  async delete(params: ITaskUseCaseDelete.Params): Promise<void | Error> {
+    try {
+      await this.repoDb.delete(params);
 
     }catch (e) {
       return new Error('Error querying the registry');

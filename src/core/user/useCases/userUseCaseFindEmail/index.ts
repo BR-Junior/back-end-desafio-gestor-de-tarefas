@@ -3,7 +3,7 @@ import {UserUseCaseFindEmail} from './UserUseCaseFindEmail';
 import {UserRepository} from '../../repository/UserRepository';
 
 
-export const findEmail = async (params: IUserUseCaseFindEmail.Params) => {
+export const providerFindEmail = async (params: IUserUseCaseFindEmail.Params) => {
   const userRepository = new UserRepository();
   const userUseCaseFindEmail = new UserUseCaseFindEmail(userRepository);
 
