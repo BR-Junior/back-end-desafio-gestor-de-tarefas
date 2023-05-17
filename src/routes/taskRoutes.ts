@@ -5,6 +5,7 @@ import {taskControllerCreate} from '../controller/task/taskControllerCreate';
 import {taskControllerFindAll} from '../controller/task/taskControllerFindAll';
 import {taskControllerDelete} from '../controller/task/taskControllerDelete';
 import {taskControllerFindOne} from '../controller/task/taskControllerFindOne';
+import {taskControllerUpdate} from '../controller/task/taskControllerUpdate';
 
 
 const taskRoutes = Router();
@@ -28,11 +29,12 @@ taskRoutes.delete('/task/:id',isAuthenticated,
   (req:Request, res: Response) =>
     controllers.taskDelete.execute(req.params.id, res));
 
-// taskRoutes.get('/task-search',taskControllerFindOne
+// taskRoutes.get('/task-search',taskControllerUpdate
 //   (req:Request, res:Response) => controllers.taskSearch.excute(req, res));
 
 
 taskRoutes.post('/task-new',(req:Request, res: Response) => taskControllerCreate(req, res));
+taskRoutes.put('/task-new-update/:id',(req:Request, res: Response) => taskControllerUpdate(req, res));
 taskRoutes.get('/task-new-get-all',(req:Request, res: Response) => taskControllerFindAll(req, res));
 
 taskRoutes.get('/task-new-get/:id',(req:Request, res: Response) => taskControllerFindOne(req, res));

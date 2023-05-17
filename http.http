@@ -82,4 +82,14 @@ Content-Type: application/json
 DELETE http://localhost:3333/task-new-delete/f623fc63-d129-4f79-9f31-f1994f3a18d9
 Content-Type: application/json
 
+### PUT update
+PUT http://localhost:3333/task-new-update/7a3b3bb1-6ffa-4b0b-93ce-f7d94c1d70c7
+Content-Type: application/json
 
+{
+  "id": "7a3b3bb1-6ffa-4b0b-93ce-f7d94c1d70c7",
+  "task": "task atualizada",
+  "priority": "low",
+  "status": "doing",
+  "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
+}

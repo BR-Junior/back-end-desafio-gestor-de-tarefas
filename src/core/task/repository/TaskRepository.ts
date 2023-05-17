@@ -4,12 +4,15 @@ import {ITaskUseCaseCreate} from '../useCases/taskUseCaseCreate/ITaskUseCaseCrea
 import {ITaskUseCaseFindAll} from '../useCases/taskUseCaseFindAll/ITaskUseCaseFindAll';
 import {ITaskUseCaseDelete} from '../useCases/taskUseCaseDelete/ITaskUseCaseDelete';
 import {ITaskUseCaseFindOne} from '../useCases/taskUseCaseFindOne/ITaskUseCaseFindOne';
+import {ITaskUseCaseUpdate} from '../useCases/taskUseCaseUpdate/ITaskUseCaseUpdate';
+import {TaskEntity} from '../entity/TaskEntity';
 
 
 export class TaskRepository implements
   ITaskUseCaseCreate,
   ITaskUseCaseFindAll,
   ITaskUseCaseFindOne,
+  ITaskUseCaseUpdate,
   ITaskUseCaseDelete{
   private repoDb = typeORMConfig.getRepository(Task);
 
@@ -50,6 +53,20 @@ export class TaskRepository implements
       if (!result) return new Error('task not found');
       return result;
 
+    }catch (e) {
+      return new Error('Error querying the registry');
+    }
+  }
+
+  async update(id:string, params: ITaskUseCaseUpdate.Params): Promise<TaskEntity | Error> {
+    try {
+      await this.repoDb.update(id, params);
+      const result = await this.repoDb.findOne({
+        where: {id: params.id}
+      });
+      console.log(id);
+      if (!result) return new Error('task not found');
+      return result;
     }catch (e) {
       return new Error('Error querying the registry');
     }
