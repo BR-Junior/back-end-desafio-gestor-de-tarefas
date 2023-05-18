@@ -8,6 +8,8 @@ import {taskControllerFindOne} from '../controller/task/taskControllerFindOne';
 import {taskControllerUpdate} from '../controller/task/taskControllerUpdate';
 import {taskControllerSearch} from '../controller/task/taskControllerSearch';
 
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from '../swagger.json';
 
 const taskRoutes = Router();
 // taskRoutes.post('/task', isAuthenticated,
@@ -34,14 +36,16 @@ const taskRoutes = Router();
 //   (req:Request, res:Response) => controllers.taskSearch.excute(req, res));
 
 
-taskRoutes.post('/task',(req:Request, res: Response) => taskControllerCreate(req, res));
+taskRoutes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+taskRoutes.post('/task',isAuthenticated,(req:Request, res: Response) => taskControllerCreate(req, res));
 taskRoutes.put('/task/:id',(req:Request, res: Response) => taskControllerUpdate(req, res));
 taskRoutes.get('/task',isAuthenticated,(req:Request, res: Response) => taskControllerFindAll(req, res));
 
-taskRoutes.get('/task-new-search/',(req:Request, res: Response) => taskControllerSearch(req, res));
+taskRoutes.get('/task-earch/',isAuthenticated,(req:Request, res: Response) => taskControllerSearch(req, res));
 
-taskRoutes.get('/task/:id',(req:Request, res: Response) => taskControllerFindOne(req, res));
+taskRoutes.get('/task/:id',isAuthenticated,(req:Request, res: Response) => taskControllerFindOne(req, res));
 
-taskRoutes.delete('/task/:id',(req:Request, res: Response) => taskControllerDelete(req, res));
+taskRoutes.delete('/task/:id',isAuthenticated,(req:Request, res: Response) => taskControllerDelete(req, res));
 
 export { taskRoutes };

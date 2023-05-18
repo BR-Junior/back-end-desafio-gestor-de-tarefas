@@ -70,13 +70,14 @@ Content-Type: application/json
 }
 
 ### GET all
-GET http://localhost:3333/task-new-get-all?idUser=e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c
+GET http://localhost:3333/task?idUser=e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQyNDc5MTcsImV4cCI6MTY4NDMzNDMxN30.q50fwtmJiUAQxHK3vN-qX5cTi05gOWVrwJy6Na36_1c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ0MjAwMzYsImV4cCI6MTY4NDUwNjQzNn0.HdIue6jgE8l8fv0xFILzZsMScxJ0_m-K2raPvb4CXTY
 
 ### GET one
-GET http://localhost:3333/task-new-get/b358a597-e3f8-44da-96bb-7e4b57125a11
+GET http://localhost:3333/task/51a1bf48-7694-444c-bfce-bb48fb34a2d3
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ0MjAwMzYsImV4cCI6MTY4NDUwNjQzNn0.HdIue6jgE8l8fv0xFILzZsMScxJ0_m-K2raPvb4CXTY
 
 
 ### Delete
@@ -84,7 +85,7 @@ DELETE http://localhost:3333/task-new-delete/b528b938-9a99-4482-bcf5-039496cbd85
 Content-Type: application/json
 
 ### PUT update
-PUT http://localhost:3333/task-new-update/a8b576b4-f657-4928-b8f6-448a557b0589
+PUT http://localhost:3333/task/a8b576b4-f657-4928-b8f6-448a557b0589
 Content-Type: application/json
 
 {

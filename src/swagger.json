@@ -1,0 +1,352 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Products",
+    "description": "Documentation from products api",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "paths": {
+    "/user": {
+      "post": {
+        "tags": ["Sign up e Sign in"],
+        "summary": "Sign up",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/SignUp"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/SignUpRes"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user-tra": {
+      "post": {
+        "tags": ["Sign up e Sign in"],
+        "summary": "Sign in",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/SignIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/SignInRes"
+              }
+            }
+          },
+          "404": {
+            "description": "Invalid email or password"
+          }
+        }
+      }
+    },
+    "/task": {
+      "get": {
+        "tags": ["Task"],
+        "summary": "Obtém todas as tarefas",
+        "security": [{"ApiKeyAuth": []}],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idUser",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "$ref": "#/components/Task"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro do servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Task"],
+        "summary": "Cria uma nova tarefa",
+        "security": [{"ApiKeyAuth": []}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/NewTask"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Tarefa criada com sucesso"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "500": {
+            "description": "Erro do servidor"
+          }
+        }
+      }
+    },
+    "/task/{taskId}": {
+      "get": {
+        "tags": ["Task"],
+        "summary": "Obtém os detalhes de uma tarefa específica",
+        "security": [{"ApiKeyAuth": []}],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID da tarefa"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tarefa não encontrada"
+          },
+          "500": {
+            "description": "Erro do servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Task"],
+        "summary": "Atualiza os detalhes de uma tarefa específica",
+        "security": [{"ApiKeyAuth": []}],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID da tarefa"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/UpdateTask"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tarefa atualizada com sucesso"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Tarefa não encontrada"
+          },
+          "500": {
+            "description": "Erro do servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Task"],
+        "summary": "Exclui uma tarefa específica",
+        "security": [{"ApiKeyAuth": []}],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID da tarefa"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Tarefa excluída com sucesso"
+          },
+          "404": {
+            "description": "Tarefa não encontrada"
+          },
+          "500": {
+            "description": "Erro do servidor"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
+    "SignUp": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "SignUpRes": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "SignIn": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "SignInRes": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "Task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "task": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "NewTask": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "idUser": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "UpdateTask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "task": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "idUser": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    }
+  }
+}
