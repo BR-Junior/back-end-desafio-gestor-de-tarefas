@@ -11,6 +11,14 @@ import {User} from '../../src/database/User';
 import {DeepPartial} from 'typeorm';
 import {TaskUseCaseFindAll} from '../../src/core/task/useCases/taskUseCaseFindAll/taskUseCaseFindAll';
 import {ITaskUseCaseFindAll} from '../../src/core/task/useCases/taskUseCaseFindAll/ITaskUseCaseFindAll';
+import {TaskUseCaseFindOne} from '../../src/core/task/useCases/taskUseCaseFindOne/TaskUseCaseFindOne';
+import {ITaskUseCaseFindOne} from '../../src/core/task/useCases/taskUseCaseFindOne/ITaskUseCaseFindOne';
+import {TaskUseCaseUpdate} from '../../src/core/task/useCases/taskUseCaseUpdate/TaskUseCaseUpdate';
+import {ITaskUseCaseUpdate} from '../../src/core/task/useCases/taskUseCaseUpdate/ITaskUseCaseUpdate';
+import {TaskUseCaseDelete} from '../../src/core/task/useCases/taskUseCaseDelete/TaskUseCaseDelete';
+import {ITaskUseCaseDelete} from '../../src/core/task/useCases/taskUseCaseDelete/ITaskUseCaseDelete';
+import {TaskUseCaseSearch} from '../../src/core/task/useCases/taskUseCaseSearch/TaskUseCaseSearch';
+import {ITaskUseCaseSearch} from '../../src/core/task/useCases/taskUseCaseSearch/ITaskUseCaseSearch';
 
 
 describe('Cread user', () => {
@@ -108,6 +116,78 @@ describe('find all task', () => {
 
 });
 
+
+describe('find one task', () => {
+  const taskRepository = new TaskRepository();
+  const taskUseCaseFindOne = new TaskUseCaseFindOne(taskRepository);
+
+  test('should be able to create a task', async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const params: ITaskUseCaseFindOne.Params = {idUser: 'e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c'};
+    const task = await taskUseCaseFindOne.findOne(params);
+    expect(task).toEqual({
+      creationDate: '30/04/2023',
+      id: 'b9212fb2-2620-4086-ba88-d9050e25bb89',
+      priority: 'high',
+      status: 'open',
+      task: 'task é obrigatoria'
+    });
+  });
+});
+
+
+describe('task update', () => {
+  const taskRepository = new TaskRepository();
+  const taskUseCaseUpdate = new TaskUseCaseUpdate(taskRepository);
+
+  test('should be able to create a task', async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const params: ITaskUseCaseUpdate.Params = {
+      id: 'b9212fb2-2620-4086-ba88-d9050e25bb89',
+      priority: 'low' as IPriority,
+      status: 'finished'as IStatus ,
+      task: 'task é obrigatoria'
+    };
+    const id = 'b9212fb2-2620-4086-ba88-d9050e25bb89';
+    const task = await taskUseCaseUpdate.update(id, params);
+    expect(task).toEqual({
+      creationDate: '30/04/2023',
+      id: 'b9212fb2-2620-4086-ba88-d9050e25bb89',
+      priority: 'low' as IPriority,
+      status: 'finished'as IStatus ,
+      task: 'task é obrigatoria'
+    });
+  });
+});
+
+describe('task delete', () => {
+  const taskRepository = new TaskRepository();
+  const taskUseCaseDelete = new TaskUseCaseDelete(taskRepository);
+
+  test('should be able to create a task', async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const id: ITaskUseCaseDelete.Params = 'b9212fb2-2620-4086-ba88-d9050e25bb89';
+    const task = await taskUseCaseDelete.delete(id);
+    expect(task).not.toBeInstanceOf(Error);
+  });
+});
+
+
+describe('task Search', () => {
+  const taskRepository = new TaskRepository();
+  const taskUseCaseSearch = new TaskUseCaseSearch(taskRepository);
+
+  test('should be able to create a task', async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const params: ITaskUseCaseSearch.Params = {task: 'task'};
+    const task = await taskUseCaseSearch.search(params);
+    expect(task).not.toBeInstanceOf(Error);
+  });
+});
 
 
 
