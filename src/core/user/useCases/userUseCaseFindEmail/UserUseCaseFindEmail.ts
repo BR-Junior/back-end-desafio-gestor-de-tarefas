@@ -8,7 +8,7 @@ export class UserUseCaseFindEmail implements IUserUseCaseFindEmail{
   async findEmail(params: IUserUseCaseFindEmail.Params): Promise<IUserUseCaseFindEmail.Result | Error> {
     const response = await this.repoUsecase.findEmail(params);
 
-    if (response instanceof Error) return new Error(response.message);
+    if (response instanceof Error) return response;
 
     if (!response.password) return new Error('Internal service error');
     const passwordMatch = await passwordCrypto.verifyPassword(params.password, response.password);

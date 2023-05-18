@@ -4,7 +4,7 @@ import { User } from './User';
 
 
 @Entity('tasks')
-export  class Task implements ITaskDTO{
+export  class Task {
 @PrimaryColumn()
 @Index()
   id: string;
@@ -24,5 +24,5 @@ export  class Task implements ITaskDTO{
   creationDate: string;
 @ManyToOne(() => User, user => user.id)
 @JoinColumn({name: 'id_user'})
-  idUser: User[];
+  idUser: User;
 }

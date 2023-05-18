@@ -12,6 +12,6 @@ export namespace ITaskUseCaseUpdate {
     task: string
     priority: IPriority
     status: IStatus
-    idUser: DeepPartial<User[]>
+    idUser: DeepPartial<User>
   }
 }

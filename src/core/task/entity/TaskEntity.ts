@@ -9,7 +9,7 @@ export class TaskEntity {
   task: string;
   priority: IPriority;
   status: IStatus;
-  idUser: DeepPartial<User[]>;
+  idUser: DeepPartial<User>;
   readonly creationDate?: string | null;
 
   constructor(props: Omit<TaskEntity, 'id' | 'creationDate'>, id?:string, creationDate?:string) {

@@ -17,7 +17,7 @@ export interface ITaskDTO {
   priority: IPriority;
   status: IStatus,
   creationDate: string;
-  idUser: DeepPartial<User[]> ;
+  idUser: DeepPartial<User> ;
 }
 
 export interface ITaskBucaDTO {

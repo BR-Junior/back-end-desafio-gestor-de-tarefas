@@ -7,7 +7,7 @@ export interface ITaskUseCaseFindAll {
 }
 export namespace ITaskUseCaseFindAll {
   export type Params = {
-    idUser: DeepPartial<User[]>
+    idUser: DeepPartial<User>
     creationDate: -1
     priority: any
     status: any
@@ -17,6 +17,6 @@ export namespace ITaskUseCaseFindAll {
     task: string
     priority: IPriority
     status: IStatus
-    idUser: DeepPartial<User[]>
+    idUser: DeepPartial<User>
   }
 }

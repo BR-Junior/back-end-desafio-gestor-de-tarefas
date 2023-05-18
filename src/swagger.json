@@ -297,10 +297,10 @@
           "type": "string"
         },
         "priority": {
-          "type": "string"
+          "type": "low or normal or high"
         },
         "status": {
-          "type": "string"
+          "type": "open or doing or finished"
         },
         "creationDate": {
           "type": "string",
@@ -315,10 +315,10 @@
           "type": "string"
         },
         "priority": {
-          "type": "string"
+          "type": "low or normal or high"
         },
         "status": {
-          "type": "string"
+          "type": "open or doing or finished"
         },
         "idUser": {
           "type": "string",
@@ -337,10 +337,10 @@
           "type": "string"
         },
         "priority": {
-          "type": "string"
+          "type": "low or normal or high"
         },
         "status": {
-          "type": "string"
+          "type": "open or doing or finished"
         },
         "idUser": {
           "type": "string",

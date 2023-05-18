@@ -19,13 +19,13 @@ export namespace ITaskUseCaseCreate {
     task: string
     priority: IPriority
     status: IStatus
-    idUser: DeepPartial<User[]>
+    idUser: DeepPartial<User>
   }
   export type Result = {
     id: string
     task: string
     priority: IPriority
     status: IStatus
-    idUser: DeepPartial<User[]>
+    idUser: DeepPartial<User>
   }
 }

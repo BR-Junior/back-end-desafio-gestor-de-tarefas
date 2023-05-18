@@ -59,13 +59,14 @@ Content-Type: application/json
 }
 
 ### POST create task new routes
-POST http://localhost:3333/task-new
+POST http://localhost:3333/task
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ0MjgxMDUsImV4cCI6MTY4NDUxNDUwNX0.GDWzyrWu9uiHb36Ly6VE6l97t5E7P49_NpQXaQa4Qow
 
 {
   "task": "Felicia",
-  "priority": "low",
-  "status": "doing",
+  "priority": "normal",
+  "status": "open",
   "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
 }
 
