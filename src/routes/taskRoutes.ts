@@ -14,7 +14,7 @@ taskRoutes.post('/task',isAuthenticated,(req:Request, res: Response) => taskCont
 taskRoutes.put('/task/:id',(req:Request, res: Response) => taskControllerUpdate(req, res));
 taskRoutes.get('/task',isAuthenticated,(req:Request, res: Response) => taskControllerFindAll(req, res));
 
-taskRoutes.get('/task-search/',isAuthenticated,(req:Request, res: Response) => taskControllerSearch(req, res));
+taskRoutes.get('/task-search',isAuthenticated,(req:Request, res: Response) => taskControllerSearch(req, res));
 
 taskRoutes.get('/task/:id',isAuthenticated,(req:Request, res: Response) => taskControllerFindOne(req, res));
 

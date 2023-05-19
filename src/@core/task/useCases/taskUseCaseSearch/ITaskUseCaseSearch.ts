@@ -6,5 +6,6 @@ export interface ITaskUseCaseSearch {
 export namespace ITaskUseCaseSearch {
   export type Params = {
     task: string
+    idUser: string
   }
 }

@@ -83,9 +83,10 @@ export class TaskRepository implements
   }
 
   async search(params: ITaskUseCaseSearch.Params): Promise<TaskEntity | TaskEntity[] | Error> {
+    const {task, idUser} = params;
     try {
       return  await this.repoDb.createQueryBuilder('task')
-        .where('task.task LIKE :task', { task: `%${params.task}%` }).getMany();
+        .where('task.task LIKE :task AND task.idUser = :idUser', { task: `%${task}%`, idUser: `${idUser}` }).getMany();
 
     }catch (e) {
       return new Error('Error querying the registry');
