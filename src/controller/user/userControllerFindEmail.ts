@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import {providerFindEmail} from '../../core/user/useCases/userUseCaseFindEmail';
+import {providerFindEmail} from '../../@core/user/useCases/userUseCaseFindEmail';
 
 export const userControllerFindEmail = async (req:Request, res: Response) => {
   const params = req.body;

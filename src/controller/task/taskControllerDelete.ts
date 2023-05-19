@@ -1,5 +1,5 @@
 import {Response} from 'express';
-import {providerDelete} from '../../core/task/useCases/taskUseCaseDelete';
+import {providerDelete} from '../../@core/task/useCases/taskUseCaseDelete';
 
 
 export const taskControllerDelete = async (req:Record<string, any>, res: Response) => {

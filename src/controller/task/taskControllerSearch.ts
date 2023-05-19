@@ -1,5 +1,5 @@
 import {Response} from 'express';
-import {providerSearch} from '../../core/task/useCases/taskUseCaseSearch';
+import {providerSearch} from '../../@core/task/useCases/taskUseCaseSearch';
 
 
 export const taskControllerSearch = async (req:Record<string, any>, res: Response) => {

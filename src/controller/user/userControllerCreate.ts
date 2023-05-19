@@ -1,6 +1,7 @@
 import {Request, Response} from 'express';
-import {providerCreate} from '../../core/user/useCases/userUseCaseCreate';
-import {userSchemaCreate, validation} from '../../core/user/useCases/userUseCaseCreate/validationSchema';
+import {providerCreate} from '../../@core/user/useCases/userUseCaseCreate';
+import {userSchemaCreate} from '../../@core/user/useCases/userUseCaseCreate/validationSchema';
+import {validation} from '../../@core/shared/services/validation/validation';
 
 export const userControllerCreate = async (req:Request, res: Response) => {
   const params = req.body;

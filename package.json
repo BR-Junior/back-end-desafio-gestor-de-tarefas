@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node-dev ./src/index.ts",
-    "migration:generate": "typeorm-ts-node-commonjs -d ./src/typeORMConfig.ts migration:generate ./src/database/migrations/def",
-    "migration:run": "typeorm-ts-node-commonjs -d ./src/typeORMConfig.ts migration:run",
+    "migration:generate": "typeorm-ts-node-commonjs -d src/dataSource.ts migration:generate ./src/database/migrations/def",
+    "migration:run": "typeorm-ts-node-commonjs -d src/dataSource.ts migration:run",
     "test": "jest"
   },
   "dependencies": {

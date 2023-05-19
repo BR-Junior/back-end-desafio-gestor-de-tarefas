@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
-import {validation} from '../../core/user/useCases/userUseCaseCreate/validationSchema';
-import {taskSchemaCreate} from '../../core/task/useCases/taskUseCaseCreate/validationSchema';
-import {create} from '../../core/task/useCases/taskUseCaseCreate';
+import {taskSchemaCreate} from '../../@core/task/useCases/taskUseCaseCreate/validationSchema';
+import {create} from '../../@core/task/useCases/taskUseCaseCreate';
+import {validation} from '../../@core/shared/services/validation/validation';
 
 
 export const taskControllerCreate =  async (req:Request, res: Response) => {

@@ -1,7 +1,7 @@
 import {Response} from 'express';
-import {providerUpdate} from '../../core/task/useCases/taskUseCaseUpdate';
-import {taskSchemaUpdate} from '../../core/task/useCases/taskUseCaseUpdate/validationSchema';
-import {validation} from '../../core/user/useCases/userUseCaseCreate/validationSchema';
+import {providerUpdate} from '../../@core/task/useCases/taskUseCaseUpdate';
+import {taskSchemaUpdate} from '../../@core/task/useCases/taskUseCaseUpdate/validationSchema';
+import {validation} from '../../@core/shared/services/validation/validation';
 
 
 export const taskControllerUpdate = async (req:Record<string, any>, res: Response) => {

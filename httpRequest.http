@@ -1,0 +1,66 @@
+### sign up
+POST http://localhost:3333/cadastrar
+Content-Type: application/json
+
+{
+  "name": "pipoca",
+  "email": "email@email.com",
+  "password": "123456"
+}
+
+### sign in
+POST http://localhost:3333/entrar
+Content-Type: application/json
+
+{
+  "email": "email@email.com",
+  "password": "123456"
+}
+
+### create task
+POST http://localhost:3333/task
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
+
+{
+  "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c",
+  "task": "task é obrigatoria",
+  "priority": "normal",
+  "status": "open"
+}
+
+### update
+PUT http://localhost:3333/task/a8b576b4-f657-4928-b8f6-448a557b0589
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
+
+
+{
+  "id": "a8b576b4-f657-4928-b8f6-448a557b0589",
+  "task": "Felicia auau",
+  "priority": "low",
+  "status": "doing",
+  "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c"
+}
+
+### find all
+GET http://localhost:3333/task?idUser=e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
+
+
+### search
+GET http://localhost:3333/task-search?task=task
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
+
+### find one
+GET http://localhost:3333/task/51a1bf48-7694-444c-bfce-bb48fb34a2d3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
+
+
+### Delete
+DELETE http://localhost:3333/task/51a1bf48-7694-444c-bfce-bb48fb34a2d3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M

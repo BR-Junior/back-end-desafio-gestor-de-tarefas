@@ -1,10 +1,9 @@
 import {Column, Entity, Index,  OneToOne, PrimaryColumn} from 'typeorm';
-import { IUserDTO} from '../components/user/DTO/IUserDTO';
 import { Task } from './Task';
 
 
 @Entity('users')
-export class User implements IUserDTO{
+export class User {
   @PrimaryColumn()
   @Index()
     id: string;

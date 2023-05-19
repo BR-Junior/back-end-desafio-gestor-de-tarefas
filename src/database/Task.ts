@@ -1,6 +1,6 @@
 import {Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn} from 'typeorm';
-import {ITaskDTO, IPriority, IStatus} from '../components/task/DTO/ITaskDTO';
 import { User } from './User';
+import {IPriority, IStatus} from '../@core/task/useCases/taskUseCaseCreate/ITaskUseCaseCreate';
 
 
 @Entity('tasks')

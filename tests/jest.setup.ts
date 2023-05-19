@@ -2,11 +2,12 @@
 // @ts-ignore
 import supertest from 'supertest';
 import { server } from '../src/server';
-import { typeORMConfig } from '../src/typeORMConfig';
+import { dataSource } from '../src/dataSource';
 import 'reflect-metadata';
 
+
 beforeAll(async () => {
-  await typeORMConfig.initialize();
+  await dataSource.initialize();
 });
 
 

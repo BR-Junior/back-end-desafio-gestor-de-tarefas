@@ -1,5 +1,5 @@
 import {Response} from 'express';
-import {providerFindOne} from '../../core/task/useCases/taskUseCaseFindOne';
+import {providerFindOne} from '../../@core/task/useCases/taskUseCaseFindOne';
 
 
 export const taskControllerFindOne = async (req:Record<string, any>, res: Response) => {
