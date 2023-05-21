@@ -8,7 +8,7 @@ export interface ITaskUseCaseFindAll {
 export namespace ITaskUseCaseFindAll {
   export type Params = {
     idUser: DeepPartial<User>
-    creationDate: -1
+    creationDate: any
     priority: any
     status: any
   }
