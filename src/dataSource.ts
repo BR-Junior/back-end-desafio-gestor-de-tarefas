@@ -6,7 +6,7 @@ import {DataSource} from 'typeorm';
 // @ts-ignore
 const port = process.env.DB_PORT as number | undefined;
 
-export const typeORMConfig = new DataSource({
+export const dataSource = new DataSource({
   type: 'postgres',
   host: process.env.DB_HOST,
   port: port,

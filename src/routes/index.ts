@@ -1,9 +1,11 @@
-import {Request, Response, Router} from 'express';
+import { Router } from 'express';
+import { taskRoutes } from './taskRoutes';
+import { userRoutes } from './userRoutes';
 
 const router = Router();
 
-router.get('/', (req:Request, res:Response) => {
-  return res.status(200).send('Hello word!');
-});
+router.use(userRoutes);
 
-export { router }
+router.use(taskRoutes);
+
+export { router };
