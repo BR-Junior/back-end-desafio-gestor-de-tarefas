@@ -13,7 +13,7 @@ export const isAuthenticated:RequestHandler = async (req, res, next) => {
     });
   }
   const jwtData = JWTService.verify(authorization);
-  if (jwtData === 'JWT_SECRET_NOT_FOUNF') {
+  if (jwtData === 'JWT_SECRET_NOT_FOUND') {
     return res.status(400).json({
       errors: { message: 'Erro ao verificar o token' }
     });
