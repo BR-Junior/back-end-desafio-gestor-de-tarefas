@@ -1,0 +1,10 @@
+/node_modules
+/idea
+yarn.lock
+.env
+/coverage
+.idea/back-end-desafio-gestor-de-tarefas.iml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/jsLinters/eslint.xml
+.idea/modules.xml
+yarn-error.log
