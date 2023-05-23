@@ -7,4 +7,4 @@ DB_NAME=postgres_desafio
 
 SALT_RANDOMS=8
 
-JWT_SECRET=pipoca
+JWT_SECRET=secret
