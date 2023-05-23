@@ -7,7 +7,7 @@
   },
   "basePath": "/",
   "paths": {
-    "/user": {
+    "/cadastrar": {
       "post": {
         "tags": ["Sign up e Sign in"],
         "summary": "Sign up",
@@ -35,7 +35,7 @@
         }
       }
     },
-    "/user-tra": {
+    "/entrar": {
       "post": {
         "tags": ["Sign up e Sign in"],
         "summary": "Sign in",
