@@ -55,10 +55,9 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
 
 ### find one
-GET http://localhost:3333/task/51a1bf48-7694-444c-bfce-bb48fb34a2d3
+GET http://localhost:3333/task/e3771681-f397-4bdf-be13-c959be1529f8
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
-
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjc5ZTUxZC0yN2FiLTRhYTYtYTU3OC01ZWMzNjlhNmQ0ZDciLCJpYXQiOjE2ODQ4NTg2MTQsImV4cCI6MTY4NDk0NTAxNH0.C1cKdmxg9Q5vDeFpk9BmCCuLBsV3P1KSvs5Xk46oql0
 
 ### Delete
 DELETE http://localhost:3333/task/51a1bf48-7694-444c-bfce-bb48fb34a2d3

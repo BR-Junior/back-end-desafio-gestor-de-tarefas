@@ -3,24 +3,36 @@ import {TaskUseCaseCreate} from '../../src/@core/task/useCases/taskUseCaseCreate
 import {IPriority, IStatus} from '../../src/@core/task/useCases/taskUseCaseCreate/ITaskUseCaseCreate';
 import {DeepPartial} from 'typeorm';
 import {User} from '../../src/database/User';
+import {providerFindEmail} from '../../src/@core/user/useCases/userUseCaseFindEmail';
+import {providerCreate} from '../../src/@core/user/useCases/userUseCaseCreate';
 
 describe('Create task', () => {
   const taskRepository = new TaskRepository();
   const taskUseCaseCreate = new TaskUseCaseCreate(taskRepository);
-  const idUser = 'e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c';
 
   test('should be able to create a task', async () => {
+    await providerCreate({
+      name: 'teste',
+      email: 'teste@email.com',
+      password: '123456'
+    });
+    const idUser = await providerFindEmail({
+      email: 'teste@email.com',
+      password: '123456'
+    });
+    if (idUser instanceof Error) return;
+
     const task = await taskUseCaseCreate.create({
-      task: 'Felicia',
+      task: 'teste',
       priority: 'normal' as IPriority,
       status: 'open' as IStatus,
-      idUser: idUser as DeepPartial<User>
+      idUser: idUser.id as DeepPartial<User>
     });
     expect(task).toEqual({
-      task: 'Felicia',
+      task: 'teste',
       priority: 'normal',
       status: 'open',
-      idUser: idUser,
+      idUser: idUser.id,
       id: expect.any(String),
       creationDate: new Date().toLocaleString()
     });

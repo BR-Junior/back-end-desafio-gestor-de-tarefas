@@ -1,22 +1,45 @@
 import {TaskRepository} from '../../src/@core/task/repository/TaskRepository';
 import {TaskUseCaseFindOne} from '../../src/@core/task/useCases/taskUseCaseFindOne/TaskUseCaseFindOne';
-import {ITaskUseCaseFindOne} from '../../src/@core/task/useCases/taskUseCaseFindOne/ITaskUseCaseFindOne';
+import {providerCreate} from '../../src/@core/user/useCases/userUseCaseCreate';
+import {providerFindEmail} from '../../src/@core/user/useCases/userUseCaseFindEmail';
+import {create} from '../../src/@core/task/useCases/taskUseCaseCreate';
+import {IPriority, IStatus} from '../../src/@core/task/useCases/taskUseCaseCreate/ITaskUseCaseCreate';
+import {DeepPartial} from 'typeorm';
+import {User} from '../../src/database/User';
 
-describe('find one task', () => {
+describe('find one task',() => {
   const taskRepository = new TaskRepository();
   const taskUseCaseFindOne = new TaskUseCaseFindOne(taskRepository);
 
   test('should be able to find a task', async () => {
+    await providerCreate({
+      name: 'teste',
+      email: 'teste@email.com',
+      password: '123456'
+    });
+    const idUser = await providerFindEmail({
+      email: 'teste@email.com',
+      password: '123456'
+    });
+    if (idUser instanceof Error) return;
+    const task = await  create({
+      task: 'teste find one',
+      priority: 'normal' as IPriority,
+      status: 'open'as IStatus,
+      idUser: idUser.id as DeepPartial<User>
+    });
+    if (task instanceof Error) return;
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const params: ITaskUseCaseFindOne.Params = {idUser: 'e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c'};
-    const task = await taskUseCaseFindOne.findOne(params);
-    expect(task).toEqual({
-      creationDate: '30/04/2023',
-      id: 'feaa99c1-287b-4a3d-ba8a-2b69b24aae70',
-      priority: 'high',
-      status: 'open',
-      task: 'task é obrigatoria'
+    const find = await taskUseCaseFindOne.findOne(task.id);
+    expect(find).toEqual({
+      id: expect.any(String),
+      task: 'teste find one',
+      priority: 'normal' as IPriority,
+      status: 'open'as IStatus,
+      creationDate: expect.any(String)
     });
+
   });
 });
