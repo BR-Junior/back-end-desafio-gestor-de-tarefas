@@ -21,7 +21,7 @@ export class TaskRepository implements
   async create(params: ITaskUseCaseCreate.Params): Promise<ITaskUseCaseCreate.Result | Error> {
     try {
       const result = await this.repoDb.create(params);
-      return await this.repoDb.save(result);
+      return await this.repoDb.save(result) as ITaskUseCaseCreate.Result;
 
     }catch (e) {
       return new Error('Error querying the registry');
@@ -60,7 +60,7 @@ export class TaskRepository implements
     }
   }
 
-  async update(id:string, params: ITaskUseCaseUpdate.Params): Promise<TaskEntity | Error> {
+  async update(id:string, params: ITaskUseCaseUpdate.Params): Promise<ITaskUseCaseUpdate.Result | Error> {
     try {
       await this.repoDb.update(id, params);
       const result = await this.repoDb.findOne({
@@ -82,7 +82,7 @@ export class TaskRepository implements
     }
   }
 
-  async search(params: ITaskUseCaseSearch.Params): Promise<TaskEntity | TaskEntity[] | Error> {
+  async search(params: ITaskUseCaseSearch.Params): Promise<ITaskUseCaseSearch.Result[] | Error> {
     const {task, idUser} = params;
     try {
       return  await this.repoDb.createQueryBuilder('task')

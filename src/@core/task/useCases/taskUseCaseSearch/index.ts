@@ -4,7 +4,7 @@ import {TaskUseCaseSearch} from './TaskUseCaseSearch';
 import {TaskEntity} from '../../entity/TaskEntity';
 
 
-export const providerSearch = async (params: ITaskUseCaseSearch.Params): Promise<TaskEntity | TaskEntity[] | Error> => {
+export const providerSearch = async (params: ITaskUseCaseSearch.Params): Promise<ITaskUseCaseSearch.Result[] | Error> => {
   const taskRepository = new TaskRepository();
   const taskUseCaseSearch = new TaskUseCaseSearch(taskRepository);
 

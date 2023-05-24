@@ -20,11 +20,11 @@ Content-Type: application/json
 ### create task
 POST http://localhost:3333/task
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlNGVmN2VmOC1mOWM3LTQwYjctODgwYS1lYmExZDMwNzFmNGMiLCJpYXQiOjE2ODQ1MDkxMTIsImV4cCI6MTY4NDU5NTUxMn0.YdPR1JWUf8yfKRhO7GiFaBaspj5PJKcHwyq8gc3O11M
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJjYjdjNGIwNi1kNjM1LTRjZGYtYWI1Ny04MGIzYWNlMWNlMjkiLCJpYXQiOjE2ODQ5NjE2NzMsImV4cCI6MTY4NTA0ODA3M30.vNIyQdW5BM9k8tvSPIven7_wZ4dPPB_yxZt1niT4BCI
 
 {
-  "idUser": "e4ef7ef8-f9c7-40b7-880a-eba1d3071f4c",
-  "task": "task é obrigatoria",
+  "idUser": "cb7c4b06-d635-4cdf-ab57-80b3ace1ce29",
+  "task": "task teste",
   "priority": "normal",
   "status": "open"
 }

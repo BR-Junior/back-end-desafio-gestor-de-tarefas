@@ -5,7 +5,7 @@ import {TaskEntity} from '../../entity/TaskEntity';
 export class TaskUseCaseUpdate implements ITaskUseCaseUpdate{
   constructor(private repoUseCse: ITaskUseCaseUpdate) {}
 
-  async update(id:string, params: ITaskUseCaseUpdate.Params): Promise<TaskEntity | Error> {
+  async update(id:string, params: ITaskUseCaseUpdate.Params): Promise<ITaskUseCaseUpdate.Result | Error> {
     return await this.repoUseCse.update(id, params);
   }
 }

@@ -4,7 +4,7 @@ import {TaskRepository} from '../../repository/TaskRepository';
 import {TaskEntity} from '../../entity/TaskEntity';
 
 
-export const providerUpdate = async (id:string, params: ITaskUseCaseUpdate.Params): Promise<TaskEntity | Error> => {
+export const providerUpdate = async (id:string, params: ITaskUseCaseUpdate.Params): Promise<ITaskUseCaseUpdate.Result | Error> => {
   const taskRepository = new TaskRepository();
   const taskUseCaseUpdate = new TaskUseCaseUpdate(taskRepository);
 
